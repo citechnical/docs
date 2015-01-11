@@ -1,18 +1,23 @@
----
+<!--
 author:
-  name: Linode
-  email: docs@linode.com
+  name: David L. Whitehurst
+  email: dlwhitehurst@citechnical.com
 description: 'Setting up a mail server with Postfix, Dovecot, and MySQL.'
-keywords: 'email,mail,postfix,dovecot,mysql,debian 7,ubuntu 14.04,dovecot 2'
+keywords: 'email,mail,postfix,dovecot,mysql'
 license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
-modified: Wednesday, October 1, 2014
+original: Linode, James Steward
+modified: Sunday, Jan 11, 2015
 modified_by:
-  name: James Stewart
-published: 'Monday, May 13th, 2013'
+  name: David L. Whitehurst
+published: 'Sunday, Jan 11, 2015'
 title: 'Email with Postfix, Dovecot, and MySQL'
----
+-->
+Postfix/Dovecot/MySQL Overview
+==============================
 
-This guide shows you how to set up a secure mail server on your Linode with Postfix, Dovecot, and MySQL. By the time you reach the end, you'll know how to create mailboxes for your users and send and receive email for your domains. You'll learn how to add new domains and users with MySQL, and how to prevent your server from being used as an "open relay" spam hub. Your users will be able to securely connect to their mailboxes with standard email clients like Microsoft Outlook and Apple Mail.
+This is a work in progress. It is hereby licensed using the CreativeCommons license [CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/). Specifics are noted in the document comments.
+
+This guide provides high-level discussion for installing, securing, and configuring a mail server on a Linode VM with Postfix, Dovecot, and MySQL. By the time you reach the end, you'll know how to create mailboxes for your users and send and receive email for your domains. You'll learn how to add new domains and users with MySQL, and how to prevent your server from being used as an "open relay" spam hub. Your users will be able to securely connect to their mailboxes with standard email clients like Microsoft Outlook and Apple Mail.
 
 Getting Started
 ---------------
