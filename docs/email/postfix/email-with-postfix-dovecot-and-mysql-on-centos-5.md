@@ -1,4 +1,4 @@
----
+<!---
 author:
   name: David L. Whitehurst
   email: dlwhitehurst@citechnical.com
@@ -11,7 +11,12 @@ modified_by:
   name: David L. Whitehurst after Linode documentation, originally authored by Linode organization and Peter Sandin
 published: 'Sunday, January 11, 2015'
 title: 'Email with Postfix, Dovecot and MySQL on CentOS 7'
----
+-->
+
+CentOS 7/Postfix/Dovecot/MySQL
+==============================
+
+This is a work in progress. It is hereby licensed using the CreativeCommons license [CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/). Specifics are noted in the document comments.
 
 The Postfix Mail Transfer Agent (MTA) is a high performance open source e-mail server system. This guide is written to document the Postfix mail service running on the CentOS 7 Linode at citechnical.com. It also uses Dovecot for IMAP/POP3 service and MySQL to store information on virtual domains and users. This guide is largely based on Peter Sandin's similar guide [Installing Postfix with Dovecot and MySQL on CentOS 5](https://github.com/linode/docs/blob/master/docs/email/postfix/email-with-postfix-dovecot-and-mysql-on-centos-5.md) at https://github.com/linode/docs.
 
