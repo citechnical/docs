@@ -1,19 +1,19 @@
 ---
 author:
-  name: Peter Sandin
-  email: psandin@linode.com
-description: 'Installing Postfix with Dovecot and MySQL on CentOS.'
-keywords: 'postfix centos 5,dovecot centos 5,linux mail server,email,centos5'
+  name: David L. Whitehurst
+  email: dlwhitehurst@citechnical.com
+description: 'Installing Postfix with Dovecot and MySQL on CentOS 7.'
+keywords: 'postfix centos 7,dovecot centos 7,linux mail server,email,centos7'
 license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
-alias: ['email/postfix/dovecot-mysql-centos-5/']
-modified: Friday, June 24th, 2011
+alias: ['email/postfix/dovecot-mysql-centos-7/']
+modified: Sunday, January 11, 2015
 modified_by:
-  name: Linode
-published: 'Friday, June 24th, 2011'
-title: 'Email with Postfix, Dovecot and MySQL on CentOS 5'
+  name: David L. Whitehurst after Linode documentation, originally authored by Linode organization and Peter Sandin
+published: 'Sunday, January 11, 2015'
+title: 'Email with Postfix, Dovecot and MySQL on CentOS 7'
 ---
 
-The Postfix Mail Transfer Agent (MTA) is a high performance open source e-mail server system. This guide will help you get Postfix running on your CentOS 5 Linode, using Dovecot for IMAP/POP3 service and MySQL to store information on virtual domains and users. This guide is largely based on Christoph Haas's great [ISP-style Email Server with Debian-Lenny and Postfix 2.5 guide](http://workaround.org/ispmail/lenny) and HowtoForge [Groupware Server With Group-Office, Postfix, Dovecot And SpamAssassin On Debian Lenny (5.0)](http://www.howtoforge.com/groupware-server-with-group-office-postfix-dovecot-spamassassin-on-debian-lenny), with some packages omitted.
+The Postfix Mail Transfer Agent (MTA) is a high performance open source e-mail server system. This guide is written to document the Postfix mail service running on the CentOS 7 Linode at citechnical.com. It also uses Dovecot for IMAP/POP3 service and MySQL to store information on virtual domains and users. This guide is largely based on Peter Sandin's similar guide [Installing Postfix with Dovecot and MySQL on CentOS 5](https://github.com/linode/docs/blob/master/docs/email/postfix/email-with-postfix-dovecot-and-mysql-on-centos-5.md) at https://github.com/linode/docs.
 
 It is assumed that you have followed the steps outlined in our [getting started guide](/docs/getting-started/). All configuration will be performed in a terminal session; make sure you're logged into your Linode as root via SSH.
 
