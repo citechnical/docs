@@ -32,38 +32,29 @@ Before you begin installing and configuring the components described in this gui
     hostname
     hostname -f
 
-The first command should show your short hostname, and the second should show your fully qualified domain name (FQDN).
+The first command should show your short hostname, and the second should show the fully qualified domain name (FQDN). The result of our query was "blueprint" and "blueprint.citechnical.com" for hostname and hostname -f respectively. 
 
 Install Required Packages
 -------------------------
 
-Issue the following commands to install any outstanding package updates:
+Issued the update command to freshen package updates:
 
     yum update
 
-The version of Postfix included in the main CentOS repository does not include support for MySQL. Therefore, you will need install Postfix from the CentOS Plus repository. Before doing so, you will need to add exclusions to the `base` and `updates` repositories for the Postfix package to prevent it from being overwritten with updates that do not have MySQL support. Edit `/etc/yum.repos.d/CentOS-Base.repo` to include the `exclude` directives as shown below:
+Issued the following commands to install the required packages on your VPS:
 
-{: .file-excerpt }
-/etc/yum.repos.d/CentOS-Base.repo
+    yum install postfix
+    yum install dovecot mariadb
 
-> [base] name=CentOS-\$releasever - Base ... exclude=postfix\*
->
-> \#released updates [updates] name=CentOS-\$releasever - Updates ... exclude=postfix\*
-
-Issue the following command to install the required packages on your VPS:
-
-    yum --enablerepo=centosplus install postfix
-    yum install dovecot mysql-server
-
-This will install the Postfix mail server, the MySQL database server, the Dovecot IMAP and POP daemons, and several supporting packages that provide services related to authentication. Next, you'll set up a MySQL database to handle virtual domains and users.
+This installs the Postfix mail server, the MariaDB or MySQL (free) database server, the Dovecot IMAP and POP daemons, and several supporting packages that provide services related to authentication. Next, we set up a MySQL database to handle virtual domains and users.
 
 Set up MySQL for Virtual Domains and Users
 ------------------------------------------
 
-First, you will need to configure MySQL to start on boot and start it for the first time. You can do this by running the following commands:
+First, we configured MySQL (MariaDB) to start on boot and we started it for the first time. These are the commands:
 
-    chkconfig mysqld on
-    service mysqld start
+    chkconfig mariadb on
+    service mariadb start
 
 After installing MySQL, it's recommended that you run mysql\_secure\_installation, a program that helps secure MySQL. While running `mysql_secure_installation`, you will be presented with the opportunity to change the MySQL root password, remove anonymous user accounts, disable root logins outside of localhost, and remove test databases. It is recommended that you answer yes to these options. If you are prompted to reload the privilege tables, select yes. Run the following command to execute the program:
 
