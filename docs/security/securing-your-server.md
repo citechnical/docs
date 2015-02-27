@@ -1,50 +1,16 @@
----
-author:
-  name: CITechnical
-  email: admin@citechnical.com
-description: Adaptation of a Linode document
-keywords: 'security, linode quickstart, getting started'
-license: '[Creative Commons 4.0](http://creativecommons.org/licenses/by/4.0/legalcode )'
-alias: ['securing-your-server/']
-modified: Thursday, February 26, 2015
-modified_by:
-  name: David L. Whitehurst
-published: 'Thursday, February 26, 2015'
-title: Securing Your Server
----
+Securing the CentOS 7 Server
+===================
 
-In the [Getting Started](/docs/getting-started) guide, you learned how to deploy Linux, boot your Linode, and perform some basic system administration tasks. Now it's time to secure your Linode and protect it from unauthorized access. You'll learn how to implement a firewall, SSH key pair authentication, and an automatic blocking mechanism called *Fail2Ban*. By the time you reach the end of this guide, your Linode will be protected from attackers.
+After the CentOS 7 operating system has been installed on your server, you should secure the machine. If your server is a physical computer you have the option of taking your time to secure it before it's connected to the internet. If, however you have set up a new virtual machine, you are online already and should begin to secure it right away. It's time now to secure your server and protect it from unauthorized access. You'll learn how to implement a firewall, SSH key pair authentication, and an automatic blocking mechanism called *Fail2Ban*. By the time you reach the end of this guide, your server will be protected from attackers.
 
 Adding a New User
 -----------------
 
-In the [Getting Started](/docs/getting-started) guide, we asked you to log in to your Linode as the `root` user, the most powerful user of all. The problem with logging in as `root` is that you can execute *any* command - even a command that could accidentally break your server. For this reason and others, we recommend creating another user account and using that at all times. After you log in with the new account, you'll still be able to execute superuser commands with the `sudo` command.
+When a new Linux operating system is installed, you'll be asked to choose a `root` user name. This allows the highest level of administration on the machine. The problem with logging in as `root` is that you can execute *any* command - even a command that could accidentally break your server. For this reason and others, we recommend creating another user account and using that at all times. After you log in with the new account, you'll still be able to execute superuser commands with the `sudo` command.
 
 Here's how to add a new user:
 
-### Debian/Ubuntu
-
-1.  Open a terminal window and [log in to your Linode via SSH](/docs/getting-started#sph_logging-in-for-the-first-time).
-
-2.  Create the user by entering the following command. Replace *exampleuser* with your desired username:
-
-        adduser exampleuser
-
-3.  Add the user to the *administer the system* (admin) group by entering the following command. Replace *exampleuser* with your username:
-
-        usermod -a -G sudo exampleuser
-
-4.  Log out of your Linode as the `root` user by entering the following command:
-
-        logout
-
-5.  Log in to your Linode as the new user by entering the following command. Replace *exampleuser* with your username, and the example IP address with your Linode's IP address:
-
-        ssh exampleuser@123.456.78.90
-
-### CentOS/Fedora
-
-1. Open a terminal window and [log in to your Linode via SSH](/docs/getting-started#sph_logging-in-for-the-first-time).
+1. Open a terminal window and log in as `root` via SSH.
 
 2.  Create the user by entering the following command. Replace *exampleuser* with your desired username:
 
@@ -61,29 +27,29 @@ Here's how to add a new user:
 5.  Type 'i' to enter the insert mode, and add an entry for your user below the root user, granting all permissions.  Replace *exampleuser* with your username:
 
         ## Allow root to run any commands anywhere
-        root    ALL=(ALL)       ALL
-        exampleuser        ALL=(ALL)       ALL
+        root ALL=(ALL)       ALL
+        exampleuser ALL=(ALL)       ALL
 
 6.  Press 'Esc' to leave insert mode and enter the following command to save the file and quit visudo:
 
         :wq
 
-7.  Log out of your Linode as the `root` user by entering the following command:
+7.  Log out of your server by entering the following command:
 
         logout
 
-8.  Log in to your Linode as the new user by entering the following command. Replace *exampleuser* with your username, and the example IP address with your Linode's IP address:
+8.  Log in to your server as the new user by entering the following command. Replace *exampleuser* with your username, and the example IP address with your server's IP address:
 
-        ssh exampleuser@123.456.78.90
+        ssh exampleuser@100.200.78.90
 
-Now you can administer your Linode with the new user account instead of `root`. When you need to execute superuser commands in the future, preface them with `sudo`. For example, later in this guide you'll execute `sudo iptables -L` while logged in with your new account. Nearly all superuser commands can be executed with `sudo`, and all commands executed with `sudo` will be logged to `/var/log/auth.log`.
+Now you can administer your server with the new user account instead of `root`. When you need to execute superuser commands in the future, preface them with `sudo`. For example, later in this guide you'll execute `sudo iptables -L` while logged in with your new account. Nearly all superuser commands can be executed with `sudo`, and all commands executed with `sudo` will be logged to `/var/log/auth.log`. This is very important because you can verify administrative steps or software configurations afterward in the event of failures or errors.
 
 Using SSH Key Pair Authentication
 ---------------------------------
 
-You've used password authentication to connect to your Linode via SSH, but there's a more secure method available: *key pair authentication*. In this section, you'll generate a public and private key pair using your desktop computer and then upload the public key to your Linode. SSH connections will be authenticated by matching the public key with the private key stored on your desktop computer - you won't need to type your account password. When combined with the steps outlined later in this guide that disable password authentication entirely, key pair authentication can protect against brute-force password cracking attacks.
+You've used password authentication to connect your server via SSH, but there's a more secure method available: *key pair authentication*. In this section, you will generate a public and private key pair using your laptop or PC and then upload the public key to your CentOS 7 server. SSH connections will be authenticated by matching the public key with the private key stored on your laptop or PC. This removes the need to type your account password on remote connection to your server. When combined with the steps outlined later in this guide that disable password authentication entirely, key pair authentication will protect against brute-force password cracking attacks. The server must require a password for an unauthorized user to actually try one. 
 
-Here's how to use SSH key pair authentication to connect to your Linode:
+Here's how to use SSH key pair authentication to connect to your server:
 
 1.  Generate the SSH keys on a desktop computer running Linux or Mac OS X by entering the following command in a terminal window *on your desktop computer*. PuTTY users can generate the SSH keys by following the windows specific instructions in the [Use Public Key Authentication with SSH Guide](/docs/security/use-public-key-authentication-with-ssh#windows-operating-system).
 
@@ -360,3 +326,7 @@ Next Steps
 ----------
 
 Good work! You have secured your Linode to protect it from unauthorized access. Next, you'll learn how to host a website. Start reading the [Hosting a Website](/docs/hosting-website) quick start guide to get going!
+
+***
+
+This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit [http://creativecommons.org/licenses/by/4.0/legalcode](http://creativecommons.org/licenses/by/4.0/legalcode) or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
