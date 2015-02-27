@@ -8,5 +8,4 @@ Security related intelligence will not be part of this documentation. If you fol
 All the documents in this repository and others are also managed in an Atlassian Confluence installation at CITechnical.com Please feel free to contribute with corrections, updates, or new articles. See our [contribute](https://github.com/citechnical/server-docs/blob/master/CONTRIBUTING.md) page for more info.
 
 ***
-
-This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/legalcode or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+This work is an adaptation of documentation originally published by Linode, LLC of Galloway, New Jersey on GitHub.com. The original works have been modified to suit the needs of servers at CITechnical, Inc., Fuquay-Varina, North Carolina. The adaptive work here is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/legalcode or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
