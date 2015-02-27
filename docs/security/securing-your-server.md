@@ -1,15 +1,15 @@
 ---
 author:
-  name: Linode
-  email: docs@linode.com
-description: 'Our guide to securing your first Linode.'
-keywords: 'security,linode quickstart,getting started'
-license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
+  name: CITechnical
+  email: admin@citechnical.com
+description: Adaptation of a Linode document
+keywords: 'security, linode quickstart, getting started'
+license: '[Creative Commons 4.0](http://creativecommons.org/licenses/by/4.0/legalcode )'
 alias: ['securing-your-server/']
-modified: Saturday, December 27th, 2014
+modified: Thursday, February 26, 2015
 modified_by:
-  name: Dave Russell
-published: 'Friday, February 17th, 2012'
+  name: David L. Whitehurst
+published: 'Thursday, February 26, 2015'
 title: Securing Your Server
 ---
 
