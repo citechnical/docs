@@ -1,18 +1,3 @@
-<!---
-author:
-  name: David L. Whitehurst
-  email: dlwhitehurst@citechnical.com
-description: 'Installing Postfix with Dovecot and MySQL on CentOS 7.'
-keywords: 'postfix centos 7,dovecot centos 7,linux mail server,email,centos7'
-license: '[CC BY-ND 3.0](http://creativecommons.org/licenses/by-nd/3.0/us/)'
-alias: ['email/postfix/dovecot-mysql-centos-7/']
-modified: Sunday, January 11, 2015
-modified_by:
-  name: David L. Whitehurst after Linode documentation, originally authored by Linode organization and Peter Sandin
-published: 'Sunday, January 11, 2015'
-title: 'Email with Postfix, Dovecot and MySQL on CentOS 7'
--->
-
 CentOS 7/Postfix/Dovecot/MySQL
 ==============================
 
